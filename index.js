@@ -10,7 +10,6 @@ var numDeleted = 0;
 
 require("redis-scanstreams")(redis);
 
-// = "/Users/kciccarello/config/config";
 if (process.argv.length !== 3) {
   throw new Error("Usage: node clear-passport-sessions.js <config_path>");
 }
