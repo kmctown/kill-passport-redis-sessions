@@ -111,8 +111,10 @@ toArray(
         return;
       }
 
+      var hrend = process.hrtime(startTime);
+
       logRule();
-      log("Completed in " + (process.hrtime(startTime)[1] / 1000000).toFixed(3) + "ms");
+      log("Execution time: " + hrend[0] + "s " + (hrend[1]/1000000).toFixed(3) + "ms");
       logRule();
       log("Matches Found: " + matches.length);
       log("Skipped: " + numSkipped);
