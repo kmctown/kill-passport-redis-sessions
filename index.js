@@ -1,6 +1,6 @@
 var VERSION = "1.0";
 var SCAN_COUNT_SIZE = 100;
-var DELAY = 100;
+var DELAY = process.env.KILL_DELAY || 100;
 var async = require("async");
 var redis = require("redis");
 var toArray = require("stream-to-array");
@@ -34,7 +34,7 @@ var client = redis.createClient(REDIS_PORT, REDIS_HOST, {
 });
 
 function processKey(key, done) {
-  logKey(key, "Detected logged in user...");
+  logKey(key, "Detecting logged in user...");
   
   client.get(key, function(err, reply) {
     if (err) {
